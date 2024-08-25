@@ -36,9 +36,9 @@ spec:
               name: dbsecret
               key: password
         - name: razorpay.key.id
-          value: rzp_test_xdfUltpcF8kLtp
+          value: #razor-pay-id
         - name: razorpay.key.secret
-          value: bYkRkc9paxmVHPt3s1PfrZgs
+          value: #razor-pay-secret
         ports:
         - containerPort: 8084
 ---
