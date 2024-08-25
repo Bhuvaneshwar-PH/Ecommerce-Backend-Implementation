@@ -1,6 +1,6 @@
 # Ecommerce Backend Implementation
 
-This project implements the backend infrastructure for an ecommerce application using Kubernetes configurations. It includes deployments for various **microservices**:
+This project implements the backend infrastructure for an ecommerce application using Kubernetes Manifest file. It includes deployments for various **microservices**:
 * **User**
 * **Product**
 * **Order**
