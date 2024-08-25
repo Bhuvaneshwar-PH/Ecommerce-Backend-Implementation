@@ -1,0 +1,50 @@
+version: "3"
+
+
+tasks:
+  01-intial:
+    desc: "Apply initial configurations and databases"
+    cmds:
+
+    - kubectl apply -f ecom-secret.yaml
+    - kubectl apply -f common-configs.yaml
+    - kubectl apply -f mysql-config.yaml
+    - kubectl apply -f mysql-storagecls.yaml
+    - sleep 2
+    - kubectl apply -f mysql-stateful.yaml
+    - kubectl apply -f eureka.yaml
+    - sleep 5
+    - kubectl get pod -w
+
+  02-apply:
+    desc: "deploying applications"
+    cmds:
+    - kubectl apply -f user-dep.yaml
+    - sleep 2
+    - kubectl apply -f product-dep.yaml
+    - sleep 2
+    - kubectl apply -f order-dep.yaml
+    - sleep 2
+    - kubectl apply -f payment-dep.yaml
+
+  03-ingress:
+    desc: "applying ingress.."
+    cmds:
+    - kubectl apply -f ingress.yaml
+
+  04-delete:
+    desc: "Delete deployments"
+    cmds:
+    - kubectl delete -f ecom-secret.yaml
+    - kubectl delete -f mysql-config.yaml
+    - kubectl apply -f common-configs.yaml
+    - kubectl apply -f mysql-storagecls.yaml
+    - kubectl apply -f mysql-stateful.yaml
+    - kubectl delete -f eureka.yaml
+    - kubectl delete -f user-dep.yaml
+    - kubectl delete -f product-dep.yaml
+    - kubectl delete -f order-dep.yaml
+    - kubectl delete -f payment-dep.yaml
+
+
+

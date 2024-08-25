@@ -1,0 +1,55 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-service
+  template:
+    metadata:
+      labels:
+        app: order-service
+    spec:
+      containers:
+      - name: order-service
+        image: haribhuvan/app:order_ms
+        envFrom:
+        - configMapRef:
+            name: common-config
+        env:
+        - name: spring.application.name
+          value: order-service
+        - name: server.port
+          value: "8083"
+        - name: spring.datasource.url
+          value: jdbc:mysql://mysql-svc:3306/order_ms
+        - name: spring.datasource.username
+          valueFrom:
+            secretKeyRef:
+              name: dbsecret
+              key: username
+        - name: spring.datasource.password
+          valueFrom:
+            secretKeyRef:
+              name: dbsecret
+              key: password
+        ports:
+        - containerPort: 8083
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-svc
+spec:
+  selector:
+    app: order-service
+  ports:
+  - name: http
+    port: 8083
+    targetPort: 8083
+  type: ClusterIP
+
+
+
