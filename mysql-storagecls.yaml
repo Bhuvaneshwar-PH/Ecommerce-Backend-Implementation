@@ -7,3 +7,6 @@ reclaimPolicy: Delete
 volumeBindingMode: Immediate
 
 
+
+## Implement in minikube if you are using any cluster like AKS/EKS/kind use https://github.com/kubernetes/examples/blob/master/staging/persistent-volume-provisioning/README.md 
+
