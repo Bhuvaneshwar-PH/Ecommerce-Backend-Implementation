@@ -15,7 +15,7 @@ apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
   name: mysql-storage
-provisioner: kubernetes.io/aws-ebs
+provisioner: ebs.csi.aws.com
 parameters:
   type: gp3
   fsType: ext4
