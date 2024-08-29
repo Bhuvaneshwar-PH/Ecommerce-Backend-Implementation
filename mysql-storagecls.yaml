@@ -17,7 +17,9 @@ metadata:
   name: mysql-storage
 provisioner: kubernetes.io/aws-ebs
 parameters:
-  type: gp2
+  type: gp3
   fsType: ext4
+  iopsPerGB: "100"
+  throughputMode: "iops"
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
