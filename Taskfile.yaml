@@ -14,7 +14,7 @@ tasks:
     - kubectl apply -f mysql-stateful.yaml
     - kubectl apply -f eureka.yaml
     - sleep 5
-    - kubectl get pod -w
+    - kubectl get pod
 
   02-apply:
     desc: "deploying applications"
