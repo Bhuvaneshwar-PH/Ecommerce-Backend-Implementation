@@ -1,12 +1,23 @@
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: mysql-storage
-provisioner: k8s.io/minikube-hostpath
-reclaimPolicy: Delete
-volumeBindingMode: Immediate
+# for minikube
+# apiVersion: storage.k8s.io/v1
+# kind: StorageClass
+# metadata:
+#   name: mysql-storage
+# provisioner: k8s.io/minikube-hostpath
+# reclaimPolicy: Delete
+# volumeBindingMode: Immediate
 
 
 
 ## Implement in minikube if you are using any cluster like AKS/EKS/kind use https://github.com/kubernetes/examples/blob/master/staging/persistent-volume-provisioning/README.md 
-
+## AWS EBS
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: mysql-storage
+provisioner: kubernetes.io/aws-ebs
+parameters:
+  type: gp2
+  fsType: ext4
+reclaimPolicy: Delete
+volumeBindingMode: Immediate
