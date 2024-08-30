@@ -19,6 +19,13 @@ Springboot based Microservice source code refer-> [Yovel](https://github.com/yov
 
 ---------
 
+## Deployment:
+
+![alt text](<deployment-explain.png>)
+
+
+---------
+
 ## Deployment explain:
 
 ![alt text]([deployment explain.png](https://github.com/Bhuvaneshwar-PH/Ecommerce-Backend-Microservice/blob/main/deployment%20explain.png))

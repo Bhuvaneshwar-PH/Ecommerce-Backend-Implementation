@@ -12,6 +12,7 @@ spec:
       labels:
         app: user-service
     spec:
+
       containers:
       - name: user-service
         image: haribhuvan/app:user_ms
