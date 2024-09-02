@@ -37,9 +37,9 @@ tasks:
     cmds:
     - kubectl delete -f ecom-secret.yaml
     - kubectl delete -f mysql-config.yaml
-    - kubectl apply -f common-configs.yaml
-    - kubectl apply -f mysql-storagecls.yaml
-    - kubectl apply -f mysql-stateful.yaml
+    - kubectl delete -f common-configs.yaml
+    - kubectl delete -f mysql-storagecls.yaml
+    - kubectl delete -f mysql-stateful.yaml
     - kubectl delete -f eureka.yaml
     - kubectl delete -f user-dep.yaml
     - kubectl delete -f product-dep.yaml
