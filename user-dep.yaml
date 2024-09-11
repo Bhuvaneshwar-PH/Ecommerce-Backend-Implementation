@@ -16,13 +16,6 @@ spec:
       containers:
       - name: user-service
         image: haribhuvan/app:user_ms
-        # resources:
-        #   requests:
-        #     cpu: 0.5k
-        #     memory: 150Mi
-        #   limits:
-        #     cpu: 1k
-        #     memory: 150Mi
         envFrom:
         - configMapRef:
             name: common-config
